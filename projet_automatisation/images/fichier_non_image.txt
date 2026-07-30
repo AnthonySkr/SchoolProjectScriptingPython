@@ -1,0 +1,1 @@
+Ce fichier n'est pas une image : il sert à tester le refus des formats non pris en charge par le module image_tools.

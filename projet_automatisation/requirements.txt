@@ -1,0 +1,6 @@
+# Bibliothèques nécessaires à la chaîne d'automatisation
+requests==2.33.1        # requêtes HTTP vers le site de démonstration
+beautifulsoup4==4.15.0  # analyse du HTML et extraction des produits
+pypdf==6.14.2           # lecture, découpage, filigrane et chiffrement des PDF
+reportlab==5.0.0        # génération du calque de filigrane et des PDF de test
+pillow==12.3.0          # ouverture et redimensionnement des images

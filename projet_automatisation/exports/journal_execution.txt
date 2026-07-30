@@ -1,0 +1,9 @@
+Journal d'exécution de la chaîne d'automatisation
+Date : 30/07/2026 10:05:27
+
+- CSV produit : exports/produits.csv (10 produits)
+- Recherche « disponibilite » : 2 page(s) correspondante(s)
+- Découpage : 4 fichier(s) dans exports/decoupage/
+- PDF final chiffré : exports/document_final_protege.pdf
+- Image redimensionnée : exports/photo_produit_redimensionnee.jpg
+- E-mail simulé : exports/email_simule.eml
