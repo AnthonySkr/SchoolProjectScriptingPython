@@ -1,0 +1,400 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 3
+/Kids [ 4 0 R 10 0 R 14 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Resources <<
+/ExtGState <<
+/gRLs0 <<
+/ca 0.25
+>>
+>>
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+/F2-0 9 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 1092
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 78 741.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 18 Tf 22 TL 46.6128 0 Td (Catalogue de produits \227 rapport interne) Tj T* -46.6128 0 Td ET
+Q
+Q
+q
+1 0 0 1 78 717.8898 cm
+Q
+q
+1 0 0 1 78 687.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Ce document de d\351monstration accompagne le projet de synth\350se de Scripting Python. Il d\351crit le) Tj T* (catalogue de produits collect\351 automatiquement sur le site de d\351monstration.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 675.8898 cm
+Q
+q
+1 0 0 1 78 645.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Chaque produit du catalogue est d\351crit par un titre, un prix et une disponibilit\351. Ces trois) Tj T* (informations sont enregistr\351es dans un fichier CSV exploitable par le service commercial.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 633.8898 cm
+Q
+ 
+
+Q
+q
+0.0 0.0 595.2756 841.8898 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+BT
+/F2-0 59 Tf
+70.8 TL
+ET
+0.6 0.1 0.1 rg
+/gRLs0 gs
+0.707107 0.707107 -0.707107 0.707107 297.6378 420.9449 cm
+BT
+1 0 0 1 -217.9755 0 Tm
+(CONFIDENTIEL) Tj
+T*
+ET
+Q
+Q
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+10 0 obj
+<<
+/Contents 11 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Resources <<
+/ExtGState <<
+/gRLs0 <<
+/ca 0.25
+>>
+>>
+/Font <<
+/F1 6 0 R
+/F1-0 12 0 R
+/F2 8 0 R
+/F2-0 13 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+11 0 obj
+<<
+/Length 919
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 78 741.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 18 Tf 22 TL (Analyse des prix) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 717.8898 cm
+Q
+q
+1 0 0 1 78 687.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Le prix moyen constat\351 sur la premi\350re page du catalogue est de 38,60 livres sterling. Le produit le) Tj T* (plus cher est vendu 57,25 livres.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 675.8898 cm
+Q
+q
+1 0 0 1 78 645.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Une variation de prix sup\351rieure \340 10 % entre deux collectes doit \352tre signal\351e au responsable des) Tj T* (achats.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 633.8898 cm
+Q
+ 
+
+Q
+q
+0.0 0.0 595.2756 841.8898 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+BT
+/F2-0 59 Tf
+70.8 TL
+ET
+0.6 0.1 0.1 rg
+/gRLs0 gs
+0.707107 0.707107 -0.707107 0.707107 297.6378 420.9449 cm
+BT
+1 0 0 1 -217.9755 0 Tm
+(CONFIDENTIEL) Tj
+T*
+ET
+Q
+Q
+
+endstream
+endobj
+12 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+14 0 obj
+<<
+/Contents 15 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Resources <<
+/ExtGState <<
+/gRLs0 <<
+/ca 0.25
+>>
+>>
+/Font <<
+/F1 6 0 R
+/F1-0 16 0 R
+/F2 8 0 R
+/F2-0 17 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+15 0 obj
+<<
+/Length 957
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 78 741.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 18 Tf 22 TL (Disponibilit\351 des produits) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 717.8898 cm
+Q
+q
+1 0 0 1 78 687.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL -0.126029 Tw (La disponibilit\351 de chaque produit est relev\351e \340 chaque ex\351cution de la cha\356ne d'automatisation. Un) Tj T* 0 Tw (produit indisponible reste pr\351sent dans le fichier CSV avec la mention correspondante.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 675.8898 cm
+Q
+q
+1 0 0 1 78 657.8898 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Le suivi de disponibilit\351 permet d'anticiper les ruptures de stock.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 78 645.8898 cm
+Q
+ 
+
+Q
+q
+0.0 0.0 595.2756 841.8898 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+BT
+/F2-0 59 Tf
+70.8 TL
+ET
+0.6 0.1 0.1 rg
+/gRLs0 gs
+0.707107 0.707107 -0.707107 0.707107 297.6378 420.9449 cm
+BT
+1 0 0 1 -217.9755 0 Tm
+(CONFIDENTIEL) Tj
+T*
+ET
+Q
+Q
+
+endstream
+endobj
+16 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+17 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+xref
+0 18
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000127 00000 n 
+0000000176 00000 n 
+0000000470 00000 n 
+0000001614 00000 n 
+0000001721 00000 n 
+0000001828 00000 n 
+0000001940 00000 n 
+0000002052 00000 n 
+0000002350 00000 n 
+0000003321 00000 n 
+0000003429 00000 n 
+0000003542 00000 n 
+0000003840 00000 n 
+0000004849 00000 n 
+0000004957 00000 n 
+trailer
+<<
+/Size 18
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+5070
+%%EOF
