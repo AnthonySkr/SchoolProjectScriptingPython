@@ -43,6 +43,27 @@ source .venv/bin/activate        # Windows : .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+> La bibliothèque `cryptography` est indispensable : `pypdf` s'en sert pour le
+> chiffrement AES-256 du PDF final. Sans elle, l'étape de chiffrement s'arrête
+> avec le message `la bibliothèque « cryptography » est nécessaire au
+> chiffrement AES des PDF`.
+
+### Note pour Windows
+
+Les fichiers de test binaires (PDF et images) sont déclarés dans
+`.gitattributes`. Si le dépôt a été cloné **avant** l'ajout de ce fichier et que
+`core.autocrlf` vaut `true`, les PDF récupérés ont pu être altérés au checkout
+(`pypdf` affiche alors `incorrect startxref pointer`). Deux solutions :
+
+```powershell
+# Solution 1 : régénérer les fichiers de test localement
+python outils/generer_fichiers_test.py
+
+# Solution 2 : forcer un nouveau checkout avec les bons attributs
+git rm --cached -r .
+git reset --hard
+```
+
 ## 3. Exécution
 
 Le programme se lance depuis le terminal, à la racine du dossier
@@ -145,7 +166,7 @@ python outils/generer_fichiers_test.py
 
 ## 7. Tests des cas d'erreur
 
-Les vingt cas d'erreur attendus (URL inaccessible, réponse HTTP incorrecte, PDF
+Les vingt et un cas d'erreur attendus (URL inaccessible, réponse HTTP incorrecte, PDF
 absent, vide ou protégé, numéro de page incorrect, image non prise en charge ou
 corrompue, erreur d'authentification ou d'envoi d'e-mail) sont vérifiés
 automatiquement :

@@ -151,7 +151,7 @@ Le programme retourne alors le code de sortie `1`.
 
 ## 6. Tests des cas d'erreur obligatoires
 
-`python outils/tests_erreurs.py` — **20 tests, 20 réussis**.
+`python outils/tests_erreurs.py` — **21 tests, 21 réussis**.
 
 | Cas exigé | Test | Message obtenu |
 | --- | --- | --- |
@@ -168,6 +168,7 @@ Le programme retourne alors le code de sortie `1`.
 | Numéro de page incorrect | plage inversée 3-2 | `Plage incorrecte : la page de début (3) dépasse celle de fin (2).` |
 | — | mot-clé vide | `Le mot-clé recherché ne peut pas être vide.` |
 | — | chiffrement sans mot de passe | `Le mot de passe de chiffrement ne peut pas être vide.` |
+| — | bibliothèque `cryptography` absente | `Chiffrement impossible : la bibliothèque « cryptography » est nécessaire au chiffrement AES des PDF. Installez-la avec : pip install -r requirements.txt` |
 | Image non prise en charge | fichier `.txt` | `Format non pris en charge : .txt (formats acceptés : ...)` |
 | Image corrompue | `.png` aux octets invalides | `Image corrompue ou format non reconnu : image_corrompue.png` |
 | — | image absente | `Image absente : .../images/image_inexistante.jpg` |
@@ -193,6 +194,21 @@ Le programme retourne alors le code de sortie `1`.
   message et ses pièces jointes sont réellement construits puis enregistrés au
   format `.eml`, sans connexion SMTP). Le code réseau et le code SMTP restent
   ceux qui sont utilisés en fonctionnement normal.
+- **Dépendance implicite de `pypdf`.** Lors d'une exécution sur une machine
+  Windows, le chiffrement a échoué avec `DependencyError: cryptography>=3.1 is
+  required for AES algorithm` : `pypdf` délègue le chiffrement AES à la
+  bibliothèque `cryptography`, qui n'était pas déclarée dans
+  `requirements.txt`. Cette exception ne dérive pas de `PyPdfError`, elle
+  échappait donc au filtre d'erreurs et remontait sous forme de trace Python.
+  Correction : ajout de `cryptography>=3.1` aux dépendances, interception
+  explicite de `DependencyError` avec un message indiquant la commande
+  d'installation, et test de non-régression dédié.
+- **Fichiers binaires et fins de ligne sous Windows.** Les PDF de test étaient
+  altérés au checkout (`incorrect startxref pointer`) : ne contenant aucun octet
+  nul dans leurs premiers kilo-octets, Git les classait comme du texte et
+  `core.autocrlf` convertissait leurs LF en CRLF, décalant les offsets de la
+  table `xref`. Correction : un fichier `.gitattributes` déclare `*.pdf`,
+  `*.jpg`, `*.png` et `*.eml` comme binaires.
 - **Secrets et dépôt Git.** Aucun identifiant ne figure dans le code : la
   configuration SMTP passe par des variables d'environnement et les mots de
   passe par `getpass`. Le fichier `.gitignore` exclut `.env` et les
