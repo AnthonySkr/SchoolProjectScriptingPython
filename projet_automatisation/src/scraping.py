@@ -37,7 +37,11 @@ def telecharger_page(url, delai=DELAI_REPONSE):
         code = erreur.response.status_code if erreur.response is not None else "inconnu"
         raise ErreurScraping(f"Réponse HTTP incorrecte ({code}) pour l'URL : {url}") from erreur
     except requests.exceptions.ConnectionError as erreur:
-        raise ErreurScraping(f"URL inaccessible (connexion impossible) : {url}") from erreur
+        raise ErreurScraping(
+            f"URL inaccessible (connexion impossible) : {url}. "
+            "Vérifiez votre connexion ou votre proxy (variables HTTP_PROXY / HTTPS_PROXY), "
+            "ou utilisez l'option --hors-ligne."
+        ) from erreur
     except requests.exceptions.RequestException as erreur:
         raise ErreurScraping(f"Requête impossible vers {url} : {erreur}") from erreur
 

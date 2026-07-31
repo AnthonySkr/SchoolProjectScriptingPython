@@ -1,0 +1,19 @@
+# Les fichiers binaires ne doivent jamais subir de conversion de fin de ligne :
+# sous Windows, core.autocrlf transformerait les LF d'un PDF en CRLF, ce qui
+# décale les offsets de la table xref et rend le document illisible.
+*.pdf  binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.bmp  binary
+*.webp binary
+*.tiff binary
+*.eml  binary
+
+# Fichiers texte : fins de ligne normalisées dans le dépôt.
+*.py   text eol=lf
+*.md   text
+*.txt  text
+*.html text
+*.csv  text

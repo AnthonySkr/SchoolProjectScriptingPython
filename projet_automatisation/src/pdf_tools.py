@@ -5,7 +5,7 @@ import unicodedata
 from pathlib import Path
 
 from pypdf import PdfReader, PdfWriter
-from pypdf.errors import PdfReadError
+from pypdf.errors import DependencyError, PyPdfError
 from reportlab.lib.colors import Color
 from reportlab.pdfgen import canvas
 
@@ -13,6 +13,11 @@ from fichiers import preparer_dossier
 
 TEXTE_FILIGRANE = "CONFIDENTIEL"
 LONGUEUR_EXTRAIT = 90
+ALGORITHME_CHIFFREMENT = "AES-256"
+MESSAGE_DEPENDANCE_MANQUANTE = (
+    "la bibliothèque « cryptography » est nécessaire au chiffrement AES des PDF. "
+    "Installez-la avec : pip install -r requirements.txt"
+)
 
 
 class ErreurPdf(Exception):
@@ -29,7 +34,7 @@ def ouvrir_pdf(source, mot_de_passe=None):
 
     try:
         lecteur = PdfReader(str(source))
-    except (PdfReadError, OSError, ValueError) as erreur:
+    except (PyPdfError, OSError, ValueError) as erreur:
         raise ErreurPdf(f"PDF illisible ou corrompu ({source.name}) : {erreur}") from erreur
 
     if lecteur.is_encrypted:
@@ -41,7 +46,11 @@ def ouvrir_pdf(source, mot_de_passe=None):
         try:
             if not lecteur.decrypt(mot_de_passe):
                 raise ErreurPdf(f"Mot de passe incorrect pour : {source.name}")
-        except (PdfReadError, NotImplementedError) as erreur:
+        except DependencyError as erreur:
+            raise ErreurPdf(
+                f"Déchiffrement impossible ({source.name}) : {MESSAGE_DEPENDANCE_MANQUANTE}"
+            ) from erreur
+        except (PyPdfError, NotImplementedError) as erreur:
             raise ErreurPdf(f"Déchiffrement impossible ({source.name}) : {erreur}") from erreur
 
     if len(lecteur.pages) == 0:
@@ -141,7 +150,7 @@ def extraire_plage_pages(source, debut, fin, destination, mot_de_passe=None):
     try:
         with destination.open("wb") as fichier:
             redacteur.write(fichier)
-    except OSError as erreur:
+    except (OSError, PyPdfError) as erreur:
         raise ErreurPdf(f"Écriture du PDF impossible ({destination}) : {erreur}") from erreur
 
     print(f"[pdf] Pages {debut} à {fin} extraites vers {destination.name}.")
@@ -170,7 +179,7 @@ def diviser_pdf(source, dossier_sortie, pages_par_fichier=1, mot_de_passe=None):
         try:
             with destination.open("wb") as fichier:
                 redacteur.write(fichier)
-        except OSError as erreur:
+        except (OSError, PyPdfError) as erreur:
             raise ErreurPdf(f"Écriture du PDF impossible ({destination}) : {erreur}") from erreur
         fichiers.append(destination)
 
@@ -212,7 +221,7 @@ def ajouter_filigrane(source, destination, texte=TEXTE_FILIGRANE, mot_de_passe=N
     try:
         with destination.open("wb") as fichier:
             redacteur.write(fichier)
-    except OSError as erreur:
+    except (OSError, PyPdfError) as erreur:
         raise ErreurPdf(f"Écriture du PDF impossible ({destination}) : {erreur}") from erreur
 
     print(f"[pdf] Filigrane « {texte} » appliqué sur {len(lecteur.pages)} page(s).")
@@ -230,15 +239,17 @@ def chiffrer_pdf(source, destination, mot_de_passe, mot_de_passe_source=None):
         redacteur.add_page(page)
 
     try:
-        redacteur.encrypt(mot_de_passe, algorithm="AES-256")
-    except (NotImplementedError, ValueError) as erreur:
+        redacteur.encrypt(mot_de_passe, algorithm=ALGORITHME_CHIFFREMENT)
+    except DependencyError as erreur:
+        raise ErreurPdf(f"Chiffrement impossible : {MESSAGE_DEPENDANCE_MANQUANTE}") from erreur
+    except (PyPdfError, NotImplementedError, ValueError) as erreur:
         raise ErreurPdf(f"Chiffrement impossible : {erreur}") from erreur
 
     destination = preparer_dossier(destination)
     try:
         with destination.open("wb") as fichier:
             redacteur.write(fichier)
-    except OSError as erreur:
+    except (OSError, PyPdfError) as erreur:
         raise ErreurPdf(f"Écriture du PDF impossible ({destination}) : {erreur}") from erreur
 
     print(f"[pdf] Document chiffré : {destination.name}")

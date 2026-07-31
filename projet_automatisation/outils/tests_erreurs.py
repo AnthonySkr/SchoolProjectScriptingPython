@@ -14,6 +14,8 @@ import threading
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
+from pypdf.errors import DependencyError
+
 RACINE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RACINE / "src"))
 
@@ -168,6 +170,32 @@ def tester_pdf():
         ValueError,
         lambda: pdf_tools.chiffrer_pdf(PDF_SOURCE, RACINE / "exports" / "test.pdf", ""),
     )
+    tester_dependance_chiffrement_absente()
+
+
+def tester_dependance_chiffrement_absente():
+    """Vérifie qu'une bibliothèque de chiffrement manquante donne un message clair.
+
+    Le chiffrement AES-256 de pypdf s'appuie sur la bibliothèque « cryptography ».
+    Si elle n'est pas installée, l'utilisateur doit obtenir une consigne
+    d'installation, et non une trace d'erreur Python.
+    """
+    encrypt_original = pdf_tools.PdfWriter.encrypt
+
+    def encrypt_sans_dependance(self, *arguments, **parametres):
+        raise DependencyError("cryptography>=3.1 is required for AES algorithm")
+
+    pdf_tools.PdfWriter.encrypt = encrypt_sans_dependance
+    try:
+        verifier(
+            "Bibliothèque de chiffrement absente",
+            pdf_tools.ErreurPdf,
+            lambda: pdf_tools.chiffrer_pdf(
+                PDF_SOURCE, RACINE / "exports" / "test.pdf", "mot_de_passe_de_test"
+            ),
+        )
+    finally:
+        pdf_tools.PdfWriter.encrypt = encrypt_original
 
 
 def tester_images():
